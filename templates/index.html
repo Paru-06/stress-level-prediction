@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stress Level Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header class="header">
+    <h1>Stress Level Prediction</h1>
+</header>
+
+<!-- MAIN GRID -->
+<div class="main">
+
+    <!-- LEFT -->
+    <div class="left">
+        <div class="emoji" id="emoji-high">😣<br><small>High</small></div>
+        <div class="emoji" id="emoji-moderate">😐<br><small>Moderate</small></div>
+        <div class="emoji" id="emoji-low">😊<br><small>Low</small></div>
+    </div>
+
+    <!-- CENTER -->
+    <div class="center">
+        <div class="webcam-box">
+            <img src="{{ url_for('video') }}">
+        </div>
+        <p class="disclaimer">
+            Emotion-based stress prediction is an estimation.
+        </p>
+        <div class="scale">
+            <span>0%</span>
+            <div class="progress-container">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+            <span>100%</span>
+        </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+    <h3>4A Model</h3>
+    <ul class="model-list">
+        <li>🚫 Avoid</li>
+        <li>⚖ Alter</li>
+        <li>🌿 Adapt</li>
+        <li>🤝 Accept</li>
+    </ul>
+</div>
+
+</div>
+
+
+<div class="bottom-section">
+
+    <div class="result">
+        <h2 id="stressText">Moderate Stress: --%</h2>
+        <p>Measures to control</p>
+    </div>
+
+    <div class="button-row">
+        <button class="scan-btn">Start Scan</button>
+        <button id="solutionBtn" class="solution-btn" style="display:none;">
+            View Solution
+        </button>
+    </div>
+
+</div>
+
+<div class="modal-overlay">
+  <div class="modal-card">
+    <span class="modal-close">✖</span>
+
+    <h2>Measures to Control</h2>
+
+    <div id="solutionContent">
+        <!-- 4A solutions will appear here -->
+    </div>
+
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
